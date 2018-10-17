@@ -1,0 +1,77 @@
+{
+  "name": "mid_autumn",
+  "version": "0.0.1",
+  "description": "中秋活动",
+  "projectTypeName": "article",
+  "platform": "app",
+  "meipian": {
+    "global": {
+      "pages": {
+        "index": {
+          "title": "中秋活动"
+        }
+      },
+      "extName": "php",
+      "remUnit": 75,
+      "isPx2rem": true
+    },
+    "deve": {
+      "domains": {
+        "bucket": "ivwen-test",
+        "cdn": "//t-ss2.meipian.me"
+      },
+      "define": {
+        "SERVICE_URL": "//t-www.meipian.cn/"
+      }
+    },
+    "prod": {
+      "domains": {
+        "bucket": "ivwen",
+        "cdn": "//ss2.meipian.me"
+      },
+      "define": {
+        "SERVICE_URL": "//www.meipian.cn/"
+      }
+    },
+    "server": {
+      "isBackHistory": false,
+      "define": {
+        "SERVICE_URL": "//t-www.meipian.cn/"
+      },
+      "extName": "html"
+    }
+  },
+  "directories": {
+    "doc": "docs"
+  },
+  "private": true,
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "npm run server",
+    "server": "meipian server --port 10002",
+    "dev": "meipian deve",
+    "build": "meipian prod",
+    "rese": "meipian deve && meipian prod"
+  },
+  "keywords": [
+    "meipian",
+    "webpack",
+    "vue"
+  ],
+  "author": "duanliaokuo",
+  "license": "ISC",
+  "devDependencies": {
+    "meipian-webpack": "0.9.3",
+    "jsdoc-vue": "^1.0.0",
+    "vue-loader": "^14.2.1",
+    "vue-style-loader": "^4.0.2",
+    "vue-template-compiler": "^2.5.15"
+  },
+  "dependencies": {
+    "jquery": "^3.3.1",
+    "axios": "^0.18.0",
+    "lodash": "^4.17.5",
+    "vue": "^2.5.13",
+    "vue-router": "^3.0.1"
+  }
+}
