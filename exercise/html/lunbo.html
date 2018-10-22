@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+  * {
+    padding: 0;
+    margin: 0;
+  }
+  .box {
+    margin-top: 500px;
+    width: 600px;
+    height: 100px;
+    line-height: 100px;
+    background-color: #8cc5ff;
+    overflow: hidden;
+  }
+
+  .wrapper p {
+    font-size: 16px;
+    padding: 0;
+    margin: 0;
+    height: 100px;
+  }
+  
+  
+  </style>
+</head>
+
+<body>
+<div class="box">
+  <div class="wrapper">
+    <p class="item">11111测试内容超多的情况</p>
+    <p class="item" style="line-height:50px">2222222222测试内容超多的情况测情况测试试内容超多的情况测试内
+      <br>哈伦裤感受到一个hi偶尔安人工hi哦啊ueghyiera</p>
+    <p class="item">33333测试内容超多的情况</p>
+    <p class="item">11111测试内容超多的情况</p>
+  </div>
+</div>
+
+<script>
+(function() {
+  var wrapper  = document.getElementsByClassName('wrapper')[0];
+  var offset = 100
+  var height = 100
+  var timer;
+  setInterval(function () {
+    if(timer) {
+      clearInterval(timer);
+    }
+    var step = 1;
+  
+    timer = setInterval(function () {
+      wrapper.style.transform = 'translateY(-' + (offset + step) + 'px)';
+      if(step == height) {
+        clearInterval(timer);
+      }
+      step++;
+  
+    }, 10);
+    
+    offset += height;
+    console.log('offset', offset)
+    console.log(wrapper.offsetHeight)
+  
+    var num = Math.floor(wrapper.offsetHeight / height)
+    console.log('num==', num)
+    
+    if (! (offset%((num - 1)*height))) {
+      offset = 0;
+    }
+
+  }, 3000)
+  
+})()
+</script>
+</body>
+</html>
