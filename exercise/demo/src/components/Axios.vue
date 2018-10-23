@@ -29,7 +29,8 @@ export default {
     }
   },
   mounted() {
-    this.formAxios()
+    // this.formAxios()
+    
   }
 };
 </script>
