@@ -24,6 +24,10 @@ export default {
         {
           path:'/',
           value:"首页"
+        },
+        {
+          path:'/video',
+          value:"原生组件"
         }
       ]
     }
@@ -44,7 +48,6 @@ export default {
   margin-top: 60px;
 }
 ul{
-  width: 100%;
   overflow: hidden
 }
 ul li{
