@@ -20,7 +20,8 @@ module.exports = {
     filename: '[name].js',
     publicPath: process.env.NODE_ENV === 'production'
       ? config.build.assetsPublicPath
-      : config.dev.assetsPublicPath
+      : config.dev.assetsPublicPath,
+    chunkFilename: "[name].[chunkhash].chunk.js"
   },
   resolve: {
     extensions: ['.js', '.vue', '.json'],
@@ -39,6 +40,9 @@ module.exports = {
       {
         test: /\.js$/,
         loader: 'babel-loader',
+        options:{
+          plugins:['syntax-dynamic-import']
+        },
         include: [resolve('src'), resolve('test'), resolve('node_modules/webpack-dev-server/client')]
       },
       {

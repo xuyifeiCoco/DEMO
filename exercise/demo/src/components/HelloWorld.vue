@@ -2,7 +2,7 @@
   <div class="hello">
     <h1 ref="ceshi"> {{ msg }}</h1>
     <div>{{nicknmae}}</div>
-
+    <Button></Button>
   </div>
 </template>
 

@@ -19,3 +19,8 @@ npm run build --report
 ```
 
 For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
+
+一、vue注册全局组件
+二、按需加載
+   npm install babel-plugin-syntax-dynamic-import --save-dev   配置组价导入方式和loader
+
