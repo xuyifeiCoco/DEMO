@@ -6,6 +6,7 @@ import Router from 'vue-router'
 const HelloWorld = () => import(/* webpackChunkName:'hello'*/ '../components/HelloWorld');// 可以配置模块的名称，相同的名字会打包到同一个模块里面
 const Axios = () => import(/* webpackChunkName:'hello'*/ '@/components/Axios');
 const Video = () => import('@/page/video');
+const Sass = () => import('@/page/sass');
 Vue.use(Router)
 
 export default new Router({
@@ -24,6 +25,11 @@ export default new Router({
       path: '/video',
       name: 'Video',
       component: Video
+    },
+    {
+      path: '/sass',
+      name: 'Sass',
+      component: Sass
     }
   ]
 })

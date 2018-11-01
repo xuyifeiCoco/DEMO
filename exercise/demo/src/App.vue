@@ -25,6 +25,10 @@ export default {
           path:'/',
           value:"首页"
         },
+         {
+          path:'/sass',
+          value:"sass"
+        },
         {
           path:'/video',
           value:"原生组件"
