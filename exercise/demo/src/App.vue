@@ -32,6 +32,10 @@ export default {
         {
           path:'/video',
           value:"原生组件"
+        },
+        {
+          path:'/qianxi',
+          value:"百度迁徙"
         }
       ]
     }

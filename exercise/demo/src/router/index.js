@@ -7,6 +7,7 @@ const HelloWorld = () => import(/* webpackChunkName:'hello'*/ '../components/Hel
 const Axios = () => import(/* webpackChunkName:'hello'*/ '@/components/Axios');
 const Video = () => import('@/page/video');
 const Sass = () => import('@/page/sass');
+const Qianxi = () => import('@/page/echart/qianxi');
 Vue.use(Router)
 
 export default new Router({
@@ -30,6 +31,11 @@ export default new Router({
       path: '/sass',
       name: 'Sass',
       component: Sass
-    }
+    },
+    {
+      path: '/qianxi',
+      name: 'qianxi',
+      component: Qianxi
+    },
   ]
 })
