@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    .button {
+      width: 100px;
+      height: 50px;
+      background: #888;
+      border: 8px solid;
+      border-color: #999 #777 #777 #999;
+    }
+
+    ul {
+      list-style: none
+    }
+
+    ul li {
+      width: 100px;
+      background: url(https://ss2.baidu.com/6ONYsjip0QIZ8tyhnq/it/u=2381238674,588426950&fm=58) no-repeat;
+      background-size: 24px 18px;
+      background-position: -5px 2px;
+      padding-left: 26px;
+    }
+
+    .triangle {
+      border-color: transparent transparent green transparent;
+      border-style: solid;
+      border-width: 0px 20px 20px 20px;
+      height: 0px;
+      width: 0px;
+    }
+
+    a.tooltip {
+      position: relative
+    }
+
+    a.tooltip span {
+      display: none;
+      padding: 5px;
+      width: 200px;
+    }
+
+    a:hover {
+      background: #fff;
+    }
+
+    /*background-color is a must for IE6*/
+    a.tooltip:hover span {
+      display: inline;
+      position: absolute;
+    }
+  </style>
+  <link rel="stylesheet" href="./index.css">
+</head>
+
+<body>
+  <button class='button'>
+    按钮
+  </button>
+  <ul>
+    <li>发送到发好了</li>
+  </ul>
+  <div class="triangle"></div>
+  <a class="tooltip" href="#">链接文字 <span>提示文字</span></a>
+
+  <div class="slider">
+    <ul></ul>
+  </div>
+</body>
+<script>
+  /*
+Text-transform用于将所有字母变成小写字母、大写字母或首字母大写： uppercase lowercase capitalize
+*/
+</script>
+
+</html>

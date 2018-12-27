@@ -8,6 +8,7 @@ const Axios = () => import(/* webpackChunkName:'hello'*/ '@/components/Axios');
 const Video = () => import('@/page/video');
 const Sass = () => import('@/page/sass');
 const Qianxi = () => import('@/page/echart/qianxi');
+const Tab = () => import('@/page/Tab/index.vue');
 Vue.use(Router)
 
 export default new Router({
@@ -36,6 +37,11 @@ export default new Router({
       path: '/qianxi',
       name: 'qianxi',
       component: Qianxi
+    },
+    {
+      path: '/tab',
+      name: 'tab',
+      component: Tab
     },
   ]
 })

@@ -36,6 +36,10 @@ export default {
         {
           path:'/qianxi',
           value:"百度迁徙"
+        },
+        {
+          path:'/tab',
+          value:"tab导航"
         }
       ]
     }
