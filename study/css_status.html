@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    /* .button {
+      transition: all 1s;
+      width: 100px;
+      height: 30px;
+    } */
+
+    /* .button[data-state="loading"] {
+       opacity: 0.5;
+    } */
+    /* .button[data-state="success"] {
+      opacity: 1;
+      background-color: green;
+    } */
+  </style>
+
+  <style>
+    /* 
+    [title~=flower]  选择 titile 属性包含单词 "flower" 的元素，并设置其样式：
+    { 
+    background-color:yellow;
+    } */
+    .button[data-state="loading"] [data-show~="loading"] {
+      display: inline-block;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- CSS 过渡是用来描述一个视觉状态在 CSS 中是如何转换至另一个视觉状态的。 -->
+  <!-- 当你的用户界面的某部分同时只能在一个状态下时（比如 loading 或 success 或 error），更新 data- 属性是更直接的 -->
+  <!-- <button class="button">
+    按钮
+  </button> -->
+
+  <button class="button" data-state="idle">
+    <!-- 处于 idle 和 loading 状态时展示下载图标 -->
+    <span class="icon" data-show="idle loading">图标</span>
+    <span class="text" data-show="idle">Download</span>
+    <span class="text" data-show="loading">Downloading...</span>
+    <span class="text" data-show="success">Done!</span>
+  </button>
+</body>
+<script>
+ const elButton = document.querySelector('.button');
+function setButtonState(state) {
+  // change data-state attribute
+  elButton.dataset.state = state;
+  // remove any active data-attributes
+  document.querySelectorAll(`[data-active]`).forEach(el => {
+    delete el.dataset.active;
+  });
+
+  // 1.当匹配到 data-show=”…” 属性时，元素应当具有 data-active 属性。
+// 2.当没有匹配到 data-hide=”…” 属性时，元素也应当具有 data-active 属性
+  // add active data-attributes to proper elements
+  document.querySelectorAll(`[data-show~="${state}"], [data-hide]:not([data-hide~="${state}"])`)
+    .forEach(el => {
+      el.dataset.active = true;
+    });
+}
+// set button state to 'loading'
+setButtonState('loading');
+
+
+  // const elButton = document.querySelector('.button');
+  // setTimeout(() => {
+  //   // set to loading
+  //   elButton.dataset.state = 'loading';
+  // }, 2000)
+
+  // setTimeout(() => {
+  //   elButton.dataset.state = 'success';
+  // }, 3000)
+</script>
+
+</html>

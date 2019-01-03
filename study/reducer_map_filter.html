@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+  //  使用Boolean过滤数组中的所有假值
+  const compact = arr => arr.filter(Boolean)
+  // console.log(compact([0, 1, false, 2, '', 3, 'a', 'e' * 23, NaN, 's', 34]) ) // [ 1, 2, 3, 'a', 's', 34 ]
+
+  // 双位运算符
+  // console.log(~~4.9 === 4) //true
+  // console.log(~~-4.5 === -4) // false
+
+  // 数字补0  只要字符创有padStart
+  const addZero2 = (num, len = 2) => (`${num}`).padStart(len, '0')
+  // console.log(addZero2(34, 6))
+
+
+  // reduce方法同时实现map和filter
+  const numbers = [10, 20, 30, 40];
+  const doubledOver50 = numbers.reduce((finalList, num) => {
+    num = num * 2;
+    if (num > 50) {
+      finalList.push(num);
+    }
+    return finalList;
+  }, []);
+  // console.log(doubledOver50); // [60, 80]
+
+
+  //很多时候，你希望统计数组中重复出现项的个数然后用一个对象表示
+  var cars = ['BMW', 'Benz', 'Benz', 'Tesla', 'BMW', 'Toyota'];
+  var carsObj = cars.reduce(function (obj, name) {
+    obj[name] = obj[name] ? ++obj[name] : 1;
+    return obj;
+  }, {});
+  // console.log(carsObj)
+
+
+  //将数组平铺到指定深度
+  const flatten = (arr, depth = 1) =>depth != 1? 
+  arr.reduce((a, v) => a.concat(Array.isArray(v) ? flatten(v, depth - 1) : v), [])
+  :arr.reduce((a, v) => a.concat(v), []);
+  // console.log(flatten([1, [2], 3, 4])); // [1, 2, 3, 4]
+  // console.log(flatten([1, [2, [3, [4, 5], 6], 7], 8],4)); // [1, 2, 3, [4, 5], 6, 7, 8]
+  
+  const pingpu = (arr) => arr.reduce( (a,v) => a.concat(Array.isArray(v)? pingpu(v):v), [] )
+  // console.log(pingpu([1, [2, [3, [4, 5], 6], 7], 8]))
+
+
+  // 数组也可以对象解构，可以方便的获取数组的第n个值
+  const csvFileLine = '1997,John Doe,US,john@doe.com,New York';
+  const { 2: country, 4: state } = csvFileLine.split(',');  // 2,4代表指定位置的字符串
+
+
+</script>
+
+</html>

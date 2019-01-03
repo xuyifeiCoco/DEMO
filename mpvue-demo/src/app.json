@@ -1,0 +1,20 @@
+{
+  "pages": [
+    "pages/index",
+    "pages/counter",
+    {
+      "path": "packageA/logs",
+      "subPackage": true,
+      "config": {
+        "navigationBarTitleText":"启动记录",
+        "enablePullDownRefresh": true
+      }
+    }
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "WeChat",
+    "navigationBarTextStyle": "black"
+  }
+}

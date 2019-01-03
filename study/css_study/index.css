@@ -12,12 +12,45 @@ body:before {
   z-index: 100;
 }
 
-.slider ul {
-  max-height: 0;
-  overlow: hidden;
+/* basic calc  calc() 用法类似于函数，能够给元素设置动态的值： */
+.simpleBlock {
+  width: calc(100% - 100px);
+  box-sizing: border-box;
+  padding: 5px calc(3% - 2px);
+  height: 50px;
+  background: blue;
 }
 
-.slider:hover ul {
-  max-height: 1000px;
-  transition: .3s ease;
+.complexBlock {
+  width: calc(100% - 50% / 3);
+  padding: 5px calc(3% - 2px);
+  margin-left: calc(10% + 10px);
 }
+
+
+h2[data-text] {
+  position: relative;
+}
+
+h2[data-text]::after {
+  content: attr(data-text);
+  z-index: 10;
+  color: #cccccc;
+  position: absolute;
+  top: 0;
+  left: 0;
+  -webkit-mask-image: -webkit-gradient(linear, left top, left bottom, from(rgb(240, 74, 74)), color-stop(50%, rgba(165, 59, 59, 0.5)), to(rgb(221, 92, 92)));
+}
+
+/* 禁用鼠标的点击事件 */
+.disabled {
+  pointer-events: none;
+}
+
+.blur {
+  margin-top: 60px;
+  color: transparent;
+  text-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+}
+
+

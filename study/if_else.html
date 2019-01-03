@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+  const actionsA = { // 这个适合一元条件判断
+
+    '1': ['processing', 'IndexPage'],
+
+    '2': ['fail', 'FailPage'],
+
+    '3': ['fail', 'FailPage'],
+
+    '4': ['success', 'SuccessPage'],
+
+    '5': ['cancel', 'CancelPage'],
+
+    'default': ['other', 'Index'],
+
+  }
+
+  const actions = new Map([  // 这个适合一元条件判断 这种情况可以使用正则
+
+    [1, ['processing', 'IndexPage']],
+
+    [2, ['fail', 'FailPage']],
+
+    [3, ['fail', 'FailPage']],
+
+    [4, ['success', 'SuccessPage']],
+
+    [5, ['cancel', 'CancelPage']],
+
+    ['default', ['other', 'Index']]
+
+  ])
+
+  /**
+
+  * 按钮点击事件
+
+  * @param {number} status 活动状态：1 开团进行中 2 开团失败 3 商品售罄 4 开团成功 5 系统取消
+
+  */
+
+  const onButtonClick = (status) => {
+    let action = actions.get(status) || actions.get('default')
+    sendLog(action[0])
+    jumpTo(action[1])
+
+  }
+
+
+  const actionsDuo = () => {  // 对应多元判断  可以把两个条件拼接起来
+
+    const functionA = () => { /*do sth*/ console.log('A') }
+
+    const functionB = () => { /*do sth*/ }
+
+    const functionC = () => { /*send log*/ }
+
+    return new Map([
+
+      [/^guest_[1-4]$/, functionA],
+
+      [/^guest_5$/, functionB],
+
+      [/^guest_.*$/, functionC],
+
+      //...
+
+    ])
+
+  }
+
+
+
+  const onButtonClickDuo = (identity, status) => {
+
+    let action = [...actionsDuo()].filter(([key, value]) => (key.test(`${identity}_${status}`)))
+    console.log(action)
+    action.forEach(([key, value]) => value.call(this))
+
+  }
+
+  onButtonClickDuo('guest','1')
+</script>
+
+</html>

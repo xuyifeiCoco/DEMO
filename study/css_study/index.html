@@ -56,9 +56,42 @@
     }
   </style>
   <link rel="stylesheet" href="./index.css">
+
+  <style>
+    .keith li {
+      list-style: none;
+      position: relative;
+      display: inline-block;
+      padding: 20px 15px 5px 15px;
+      margin-left: -10px;
+      color: #fff;
+      cursor: pointer;
+    }
+
+    .keith li::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      z-index: -1;
+      background: #2175BC;
+      border: 1px solid #fff;
+      border-top-right-radius: 8px;
+      border-top-left-radius: 8px;
+      transform: perspective(0.5em) rotateX(5deg);
+      transform-origin: bottom;
+    }
+
+    .keith li:hover::after {
+      background: #39a3f5;
+    }
+  </style>
 </head>
 
 <body>
+  <ul class='keith'> <li>首页</li> <li>笔记</li> <li>问问</li> <li>学习</li> <li>设置</li></ul>
   <button class='button'>
     按钮
   </button>
@@ -68,8 +101,13 @@
   <div class="triangle"></div>
   <a class="tooltip" href="#">链接文字 <span>提示文字</span></a>
 
-  <div class="slider">
-    <ul></ul>
+  <div class="simpleBlock">
+    fsadf
+  </div>
+  <h2 data-text='发的所发生的'></h2>
+
+  <div class="blur">
+    是DVD发布大风
   </div>
 </body>
 <script>
