@@ -6,7 +6,7 @@
       "path": "packageA/logs",
       "subPackage": true,
       "config": {
-        "navigationBarTitleText":"启动",
+        "navigationBarTitleText":"启动历史",
         "enablePullDownRefresh": true
       }
     }
