@@ -21,10 +21,6 @@ export default {
           path:'/Axios',
           value:'请求'
         },
-        {
-          path:'/',
-          value:"首页"
-        },
          {
           path:'/sass',
           value:"sass"
