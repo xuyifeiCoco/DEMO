@@ -14,6 +14,8 @@
 <script>
 export default {
   name: "App",
+  components:{
+  },
   data(){
     return {
       routerArray:[
@@ -34,9 +36,17 @@ export default {
           value:"百度迁徙"
         },
         {
+          path:'/maillist',
+          value:"通讯录列表"
+        },
+        {
           path:'/tab',
           value:"tab导航"
-        }
+        },
+        {
+          path:'/components',
+          value:"组件列表"
+        },
       ]
     }
   },

@@ -1,0 +1,20 @@
+<!--components/alphabet-order-list/alphabet-order-list.wxml-->
+<view class='alphabetical-order'>
+  <view id='alphabet' class='alphabet' style='line-height: {{letterHeight}}px; background-color: {{startTouchAlphabet ? "rgba(0, 0, 0, 0.2)" : "transparent"}};' catchtouchcancel='_letterTouchCancelEvent' catchtouchstart='_letterTouchStartEvent' catchtouchmove='_letterTouchMoveEvent'
+    catchtouchend='_letterTouchEndEvent'>
+    <view class='letter' wx:for="{{alphabet}}" wx:key>{{item == 'PoundSign' ? '#' : item}}</view>
+  </view>
+  <view wx:if='{{startTouchAlphabet}}' class='letter-toast'>{{touchLetter == 'PoundSign' ? '#' : touchLetter}}</view>
+  <scroll-view class='data-list' scroll-y scroll-into-view='{{touchLetter}}'>
+    <block wx:for='{{dataSource}}' wx:key='{{pitem.tag}}' wx:for-item='pitem'>
+      <view id='{{pitem.tag}}' class='letter-tag' style='{{tagStyle}}'>{{pitem.tag == 'PoundSign' ? '#' : pitem.tag}}</view>
+      <block wx:for='{{pitem.data}}' wx:key wx:for-item='item'wx:for-index='j'>
+        <view class='tag-item' bindtap='_itemtap' data-item='{{item}}'>
+          <image wx:if='{{imageKey != ""}}' class='item-image' style='{{imageStyle}}' src='{{item[imageKey]}}'></image>
+          <view class='item-text' style='{{textStyle}}'>{{item[textKey]}}</view>
+        </view>
+        <view wx:if="{{j != pitem.data.length - 1}}" class='divide-line'></view>
+      </block>
+    </block>
+  </scroll-view>
+</view>

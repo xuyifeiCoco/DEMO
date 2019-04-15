@@ -1,0 +1,2 @@
+<!--pages/chooseprovince/chooseprovince.wxml-->
+<alphabet-order-list id='alphabet_order_list' source='{{provinces}}' group-key='pinyin' text-key='name' catchitemtap='itemClickEvent'/>

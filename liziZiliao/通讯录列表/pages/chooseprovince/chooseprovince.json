@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "选择地区",
+  "usingComponents": {
+    "alphabet-order-list": "../../components/alphabet-order-list/alphabet-order-list"
+  }
+}
