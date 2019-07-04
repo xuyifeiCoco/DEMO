@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title></title>
+  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no"
+    name="viewport" />
+  <!-- <script src='/js/flexible.js'></script> -->
+</head>
+<style>
+  html,
+  body {
+    height: 100%;
+    font-size: 20px;
+  }
+
+  #loading {
+    text-align: center;
+  }
+
+  .unit {
+    height: 120px;
+    border: 1px solid black;
+  }
+
+  .container {
+    max-width: 540px;
+    margin: 0px auto;
+  }
+</style>
+
+<body>
+  <div class='container' id='app'>
+    <div id='loading'>
+      loading....
+    </div>
+  </div>
+</body>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    var sum = 1;
+    var loadData = function () {
+      var fragment = document.createDocumentFragment();
+      for (var i = 0; i < 10; i++) {
+        var div = document.createElement('div');
+        div.className = 'unit';
+        div.innerText = 'this is text' + sum;
+        fragment.appendChild(div);
+        sum++;
+      }
+      document.getElementById('app').insertBefore(fragment, document.getElementById('loading'));
+    }
+    var io = new IntersectionObserver(function (entries) {
+      if (entries[0].isIntersecting) { // 这个表示相交了
+        if (sum < 100) {
+          setTimeout(() => {
+            loadData();
+
+          }, 2000)
+        } else {
+          document.getElementById('loading').innerText = '到底了...'
+        }
+      }
+    });
+    io.observe(document.getElementById('loading'));
+
+  })
+//     // 没有相交
+// 相交了一半
+// intersectionRatio为0   
+// intersectionRatio为50%
+
+// isIntersecting为false
+// isIntersecting为true
+
+// 全部相交
+// intersectionRatio为100%
+// isIntersectin
+</script>
+
+</html>
+
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+<div id='app'>
+<h1>回复垃圾收到货拉的屎</h1>
+<h1>回复垃圾收到货拉的屎</h1>
+<h1>回复垃圾收到货拉的屎</h1>
+<h1>回复垃圾收到货拉的屎</h1>
+<h1>回复垃圾收到货拉的屎</h1>
+<h1>回复垃圾收到货拉的屎</h1>
+<h1>回复垃圾收到货拉的屎</h1>
+<h1>回复垃圾收到货拉的屎</h1>
+<h1>回复垃圾收到货拉的屎</h1>
+<h1>回复垃圾收到货拉的屎</h1>
+<h1>回复垃圾收到货拉的屎</h1>
+<h1>回复垃圾收到货拉的屎</h1>
+<h1>回复垃圾收到货拉的屎</h1>
+<h1>回复垃圾收到货拉的屎</h1>
+<h1>回复垃圾收到货拉的屎</h1>
+<h1>回复垃圾收到货拉的屎</h1>
+<h1>回复垃圾收到货拉的屎</h1>
+<h1>回复垃圾收到货拉的屎</h1>
+<div id="show">是否显示</div>
+</div>
+</body>
+<script>
+  //  IntersectionObserver 可以用来监听元素是否进入了设备的可视区域之内，而不需要频繁的计算来做这个判断
+  function IntersectionObserverFun() {
+    let self = this;
+    let ele = document.getElementById('show');
+    if (!!IntersectionObserver) {
+      let observer = new IntersectionObserver(function () {
+        let offsetTop = ele.getBoundingClientRect().top;
+        self.titleFixed = offsetTop < 0;
+      }, {
+          threshold: [1]
+        });
+      observer.observe(document.getElementsByClassName('title_box')[0]);
+    } else {
+      // window.addEventListener('scroll', _.throttle(function () {
+      //   let offsetTop = ele.getBoundingClientRect().top;
+      //   self.titleFixed = offsetTop < 0;
+      // }, 50));
+    }
+  }
+</script>
+
+</html> -->

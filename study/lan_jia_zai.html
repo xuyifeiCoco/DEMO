@@ -1,0 +1,61 @@
+
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" name="viewport" />
+		<!-- <script src='/js/flexible.js'></script> -->
+	</head>
+	<style>
+		html,
+		body {
+			height: 100%;
+		}
+		
+		img {
+			width: 100%;
+			margin: 0px;
+			padding: 0px;
+		}
+		.container{
+			max-width:540px;
+			margin:0px auto;
+		}
+	</style>
+
+	<body>
+		<div class='container' id='app'>
+      <img src="http://active.qiutianaimeili.com/logo.png" alt="">
+			<img class='img'  src='' data-src="http://active.qiutianaimeili.com/logo.png"/>
+			<img class='img'  src=''  data-src="http://active.qiutianaimeili.com/logo.png" />
+			<img class='img'  src=''  data-src="http://active.qiutianaimeili.com/logo.png"/>
+			<img class='img' src=''  data-src="http://active.qiutianaimeili.com/logo.png"/>
+			<img class='img' src=''  data-src="http://active.qiutianaimeili.com/logo.png"/>
+			<img class='img'  src=''  data-src="http://active.qiutianaimeili.com/logo.png"/>
+			<img class='img'  src=''  data-src="http://active.qiutianaimeili.com/logo.png"/>
+			<img class='img'  src=''  data-src="http://active.qiutianaimeili.com/logo.png"/>
+			<img class='img'  src=''  data-src="http://active.qiutianaimeili.com/logo.png"/>
+		</div>
+	</body>
+
+	<script>
+		document.addEventListener('DOMContentLoaded', function() {
+			var io = new IntersectionObserver(function(entries) {
+				entries.forEach(function(item, i) {
+					if(item.isIntersecting) {
+						var data_src = item.target.getAttribute('data-src');
+						item.target.setAttribute('src', data_src);
+						//						console.log(data_src,item);
+						io.unobserve(item.target)
+					}
+				})
+			});
+			document.querySelectorAll('.img').forEach(function(item, i) {
+				io.observe(item);
+			});
+		})
+	</script>
+
+</html>
